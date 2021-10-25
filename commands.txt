@@ -1,0 +1,47 @@
+1-2) git config		git config –global user.name “[name]”	This command sets the author name and email address respectively 
+					git config –global user.email “[email address]”
+
+3) git init 		git init [repository name]				This command is used to start a new repository.
+
+
+3) git clone		git clone [url]							This command is used to create a repository from an existing URL to any folder.
+
+4-5-6) mkdir		mkdir <foldername>						This is used to make a depository.
+					mkdir folder1 folder2 folder3..			Creates multiple folder in same directory
+					mkdir folder1\folder2\folder3\..		Creates nested folder structure
+
+7) create file		notepd++ <filename>						Creates a file with notepad as a text editor.
+
+8-9) git add		git add <filename>						adds a file to the staging area
+					git add .								adds all pending files to the staging area.
+
+10-11-12)git commit git commit -m "[message]"				records or snapshots the file permanently in the version history.
+					git commit								directly opens notepad++ window to add commit
+					git commit -am "[message]"				merging add and commit command in a single command.
+
+13) git status		git status								This command lists all the files that have to be committed.
+
+14) git rm			git rm <filename>						This command deletes the file from your working directory and stages the deletion.
+
+15) gir restore 	git restore --staged <filename>			restores that file from commit stage to add stage.
+
+16)git checkout		git chechout -- <filename>				restores that file fully to a clean working directory.
+
+17) git pull		git pull <Repository Link>				This command fetches and merges changes on the remote server to your working directory.
+
+18-19-20) git push	git push [variable name] master			This command sends the committed changes of master branch to your remote repository.
+					git push [variable name] [branch]		This command sends the branch commits to your remote repository.
+					git push –all [variable name]			This command pushes all branches to your remote repository.
+					
+21) rmdir			rmdir /s <foldername>					Delete all subfolders and the specified folder too.
+
+22) delete file 	del (name)								delete specified file.
+
+23) rename			ren oldname newname						rename te file/folder from an old name to a new name.
+
+24-25) dir			dir										shows all the files/folder in the curent directory.
+					dir /a									shows all the files/folder in the curent directory include hidden files.
+
+26) new file 		echo "message" >> filename				creates a file.
+
+27) rename file 	git mv oldname newname					renames from old file name to new file name.
