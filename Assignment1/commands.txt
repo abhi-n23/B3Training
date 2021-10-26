@@ -45,3 +45,7 @@
 26) new file 		echo "message" >> filename				creates a file.
 
 27) rename file 	git mv oldname newname					renames from old file name to new file name.
+
+28) reset deletion	git reset HEAD <filename>				reverts deletion which not permenantly deleted yet.
+
+29) delete every folder		git rm -rf <foldername>			delete every subfolder and the specified folder. 
