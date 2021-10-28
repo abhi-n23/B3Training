@@ -76,7 +76,7 @@ document.querySelector('.check').addEventListener('click', function () {
     // }
 });
 
-document.querySelector('.again').addEventListener('click', function () {
+document.querySelector('.new--game').addEventListener('click', function () {
 
     score = 20;
     secretnumber = Math.trunc(Math.random() * 20) + 1;
