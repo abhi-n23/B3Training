@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="Login-Form-Dark.css">
+	
+	<title>
+        Employee list
+    </title>
+</head>
+
+
+
+<body style="background-color: rgb(70, 70, 70); font-family: Georgia, "Times New Roman", Times, serif;">
+	<div class="login-dark" style="width: 100hv;height: 200px ;background-color: rgb(70, 70, 70);">
+	<h1 style="text-align: center;">Employee List</h1>
+<form>
+	<input type="text" id="name" style="width: 230px;">
+	<input type="button" value="Submit" onclick='manageData()' style="width: 70px;">
+</form>
+<div id="msg"></div>
+</div>
+
+<h1 style="text-align: center;">List</h1>
+
+<div style="width:100%; text-align: center;">
+	
+	<input class="form-control mr-sm-2" type="search" placeholder="search" aria-lable="search" id="searchtextbox" style="height: 30px; margin-bottom: 10px;"/>
+	<br>
+	<input type="button" class="btn btn-sort" onclick="sortdata()" value="Sort" id="sortdata" style="width: 70px;margin: 10px;">
+	
+</div>
+
+<table border="1" style=" font-size: 20px; border: 1px solid #dddddd;margin: auto;text-align: center;padding: 8px;border-collapse: separate;width: 60%;">
+	<thead>
+		<tr>
+			<td style=" font-size: 30px; width: 50px;">S.No</td>
+			<td style="font-size: 30px;">Name</td>
+			<td style="font-size: 30px; width: 200px;">Action</td>
+		</tr>
+	<thead>
+	<tbody id="root">
+	
+	<tbody>
+</table>
+<script src="index.js"></script>
+</body>
+</html>
