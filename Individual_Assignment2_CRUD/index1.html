@@ -10,42 +10,86 @@
 	<title>
         Employee list
     </title>
+
 </head>
 
 
 
-<body style="background-color: rgb(70, 70, 70); font-family: Georgia, "Times New Roman", Times, serif;">
-	<div class="login-dark" style="width: 100hv;height: 200px ;background-color: rgb(70, 70, 70);">
-	<h1 style="text-align: center;">Employee List</h1>
-<form>
-	<input type="text" id="name" style="width: 230px;">
-	<input type="button" value="Submit" onclick='manageData()' style="width: 70px;">
+<body style="background-color: rgb(70, 70, 70); font-family: Georgia, Times New Roman, Times, serif;">
+
+
+<div class="left">
+
+	<div align="center" class="login-dark" style=" width: 100hv;height: 200px ;background-color: rgb(70, 70, 70);margin-left: 70px;">
+	<h1 style="text-align: center;">Insert Data</h1>
+<form style="margin-top: 150px; width: 200px;" autocomplete="off">
+	
+	
+	<input type="text" placeholder="Full Name*" id="name" style="width: 95%; height: 30px;font-size: 15px;font-family: Georgia, Times New Roman, Times, serif;" required><br>
+	<div id="msg" style="color: red;"></div>
+	
+	
+	<input type="text" placeholder="Email*" id="email" style="width: 95%; height: 30px;font-size: 15px;font-family: Georgia, Times New Roman, Times, serif;" required><br>
+	<div id="msg2" style="color: red;"></div>
+
+
+	<input type="text" required placeholder="Department" id="department" required style="font-family: Georgia, Times New Roman, Times, serif;width: 95%;height: 30px;margin-top: 10px;font-size: 15px;"><br>
+	<input type="text" required placeholder="Designation" id="designation" style="font-family: Georgia, Times New Roman, Times, serif;width: 95%;height: 30px;font-size: 15px;"><br>
+	<!-- <input type="text" placeholder="Salary" id="salary" style="width: 80%;height: 25px;"><br> -->
+	<input type="text" placeholder="City" id="city" style="width: 95%;height: 30px;font-size: 15px;font-family: Georgia, Times New Roman, Times, serif;"><br>
+
+	<div id="msg3" style="color: red;"></div>
+
+	<input type="button" value="Submit" onclick='manageData()' style="width: 100px;margin-top: 10px;font-size: 20px;">
 </form>
-<div id="msg"></div>
+
+</div>
 </div>
 
+
+<div class="right">
 <h1 style="text-align: center;">List</h1>
 
 <div style="width:100%; text-align: center;">
 	
-	<input class="form-control mr-sm-2" type="search" placeholder="search" aria-lable="search" id="searchtextbox" style="height: 30px; margin-bottom: 10px;"/>
+	<input class="form-control mr-sm-2" type="search" placeholder="Search By Name" aria-lable="search" id="searchtextbox" style="height: 40px;width: 200px; margin-bottom: 10px;font-family: Georgia, Times New Roman, Times, serif; font-size: 15px;"/>
 	<br>
-	<input type="button" class="btn btn-sort" onclick="sortdata()" value="Sort" id="sortdata" style="width: 70px;margin: 10px;">
+
+<div style="height: 25px;">
+	<label style="height: 30px;font-size: 25px; width: 20px;;margin: 0px;">Sort By Name
+
+	<input type="button" class="btn btn-sort" onclick="sortdata()" value="↑" id="sortdata1" style="height: 25px;text-align: center; width: 25px;margin-right: -5px;align-self:auto;border: 0vh;">
+	
+	<input type="button" class="btn btn-sort" onclick="sortdatadecs()" value="↓" id="sortdata2" style="text-align: center; width: 25px;height: 25px;margin-left:-5px;border: 0vh;">
+</label>
+</div>
+	<br>
+
+	<input type="button" class="btn btn-delete" onclick="deletealldata()" value="Delete All" id="deletedata" style="font-family: Georgia, Times New Roman, Times, serif;width: 80px;height: 30px;margin: 5px;">
+
 	
 </div>
 
-<table border="1" style=" font-size: 20px; border: 1px solid #dddddd;margin: auto;text-align: center;padding: 8px;border-collapse: separate;width: 60%;">
+
+<table border="1" id="tabledata" style=" font-size: 25px;border: 1px solid #dddddd;margin: auto;text-align: center;padding: 2px;border-collapse: separate;width: 50%;">
 	<thead>
 		<tr>
 			<td style=" font-size: 30px; width: 50px;">S.No</td>
 			<td style="font-size: 30px;">Name</td>
-			<td style="font-size: 30px; width: 200px;">Action</td>
+			<td style="font-size: 30px;">Email</td>
+			<td style="font-size: 30px;">Department</td>
+			<td style="font-size: 30px;">Designation</td>
+			<td style="font-size: 30px;">City</td>
+			<!-- <td style="font-size: 30px;">Salary</td> -->
+
+			<td style="font-size: 30px;">Action</td>
 		</tr>
 	<thead>
 	<tbody id="root">
 	
 	<tbody>
 </table>
+</div>
 <script src="index.js"></script>
 </body>
 </html>

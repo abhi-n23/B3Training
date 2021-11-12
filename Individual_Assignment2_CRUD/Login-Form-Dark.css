@@ -3,6 +3,7 @@
   background: #475d62;
   background-size: cover;
   position: relative;
+  float: left;
 }
 
 .login-dark form {
@@ -70,4 +71,20 @@
 
 .login-dark form .btn-primary:active {
   transform: translateY(1px);
+}
+#left {
+  background-color: brown;
+  width: 50%;
+  float: left;
+  /* margin-left: 10%; */
+}
+
+#right {
+  background-color: brown;
+  width: 100%;
+  float: right;
+}
+
+#tabledata tr:hover {
+  background-color: #85858580;
 }
