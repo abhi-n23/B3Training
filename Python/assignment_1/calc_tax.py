@@ -1,65 +1,76 @@
 import dbconnect
 
 
-def Calctax(calculation, salary, name):
-    update_script = "update employee set tax = {} where name = '{}'" .format(
-        calculation, name)
-    dbconnect.cur.execute(update_script)
-
-    print('{:25} have a salary of Rs.{:<8} and pays tax of Rs. {:<8}'.format(
-        name, salary, calculation))
-
-
 try:
 
-    # fetch records
-    print('--------------------------------------BEFORE CALCULATING--------------------------------------')
-    dbconnect.cur.execute('select * from employee')
-    for record in dbconnect.cur.fetchall():
-        print('{:30} = {:10}'.format(record['name'], record['salary']))
+    # create object or DB_connect class
+    obj1 = dbconnect.DB_connect()
+    obj1.create_table()
 
+    # create object or departmenttable class
+    deptobj = dbconnect.departmentTable()
+
+    # create object or employeetable class
+    empobj = dbconnect.employeeTable()
+
+    # calling add methods of both objets
+    deptobj.add("dept 1")
+    deptobj.add("dept 2")
+    empobj.add("Abhishek Ninawe", 510000, 1)
+    empobj.add("Shreeya Gondhalekar", 1510000, 2)
+    empobj.add("Adarsh Soyam", 1810000, 1)
+
+
+# fetch records
+    dbconnect.DB_connect.displayrecords()
 
 # update records
-    print('--------------------------------------AFTER CALCULATING--------------------------------------')
-    # update_script=''
-    dbconnect.cur.execute('select * from employee')
-    for record in dbconnect.cur.fetchall():
+    print('\n--------------------------------------AFTER CALCULATING--------------------------------------')
+    obj1.cur.execute('select * from employee')
+    for record in obj1.cur.fetchall():
 
         if record['salary'] >= 0 and record['salary'] <= 250000:
-            Calctax(0, record['salary'], record['name'])
+            obj1.Calctax(0, record['salary'], record['name'])
             continue
 
         elif record['salary'] >= 250001 and record['salary'] <= 500000:
-            Calctax((record['salary'] * 0.05),
-                    record['salary'], record['name'])
+            obj1.Calctax((record['salary'] * 0.05),
+                         record['salary'], record['name'])
             continue
 
         elif record['salary'] >= 500001 and record['salary'] <= 750000:
-            Calctax((12500 + (record['salary'] * 0.1)),
-                    record['salary'], record['name'])
+            obj1.Calctax((12500 + (record['salary'] * 0.1)),
+                         record['salary'], record['name'])
             continue
 
         elif record['salary'] >= 750001 and record['salary'] <= 1000000:
-            Calctax((37500 + (record['salary'] * 0.15)),
-                    record['salary'], record['name'])
+            obj1.Calctax((37500 + (record['salary'] * 0.15)),
+                         record['salary'], record['name'])
             continue
 
         elif record['salary'] >= 1000001 and record['salary'] <= 1250000:
-            Calctax((75000 + (record['salary'] * 0.2)),
-                    record['salary'], record['name'])
+            obj1.Calctax((75000 + (record['salary'] * 0.2)),
+                         record['salary'], record['name'])
             continue
 
         elif record['salary'] >= 1250001 and record['salary'] <= 1500000:
-            Calctax((125000 + (record['salary'] * 0.25)),
-                    record['salary'], record['name'])
+            obj1.Calctax((125000 + (record['salary'] * 0.25)),
+                         record['salary'], record['name'])
             continue
 
         else:
-            Calctax((187500 + (record['salary'] * 0.3)),
-                    record['salary'], record['name'])
+            obj1.Calctax((187500 + (record['salary'] * 0.3)),
+                         record['salary'], record['name'])
             continue
 
-    dbconnect.conn.commit()
+    # del_record = input("\nEnter employee name to delete record = ")
+    # obj1.delete_record(del_record)
+    empobj.delete("Adarsh Soyam")
+    empobj.update("Abhishek Ninawe", "salary", 1000000)
+
+    dbconnect.DB_connect.displayrecords()
+
+    obj1.conn.commit()
 
 
 except Exception as error:
@@ -67,7 +78,7 @@ except Exception as error:
 
 finally:
     # *** if we use "context manager" with clause will take care of closing the cursor for us***
-    if dbconnect.cur is not None:
-        dbconnect.cur.close()
-    if dbconnect.conn is not None:
-        dbconnect.conn.close()
+    if obj1.cur is not None:
+        obj1.cur.close()
+    if obj1.conn is not None:
+        obj1.conn.close()
